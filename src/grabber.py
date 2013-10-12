@@ -49,9 +49,8 @@ class Grabber(object):
         parsed = urlparse(partial_url)
 
         if not parsed.netloc:
-            partial_url = u"{}{}{}".format(parsed_base_url.netloc, \
-                                                  '', \
-                                                  parsed.path.lstrip('../').lstrip('/'))
+            partial_url = u"{}/{}".format(parsed_base_url.netloc.rstrip('/'), \
+                                         parsed.path.lstrip('../').lstrip('/'))
 
         return partial_url
 

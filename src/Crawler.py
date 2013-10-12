@@ -48,7 +48,7 @@ class Crawler(ArgParse, LinkedList):
 
         while walker:
             if linked_list_obj.list.count <= self.limit:
-                _url_list = grabber_obj(options.url)
+                _url_list = grabber_obj(self.start_url)
                 _url_list = [ele for ele in _url_list \
                              if ele not in self.processed_url]
 

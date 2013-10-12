@@ -1,0 +1,58 @@
+#! /usr/bin/python
+
+###############################################################################
+##
+##
+##
+###############################################################################
+
+"""
+
+"""
+
+__all__ = ['Grabber']
+
+__author__ = r"SivaCn (http://www.cnsiva.com)"
+__email__ = r"cnsiva.in@gmail.com"
+
+## ------- Built-in Imports ------ ##
+import re
+import os
+import sys
+import urllib
+import BeautifulSoup
+from urlparse import urlparse
+## ------- Built-in Imports ------ ##
+
+## ------- Package Imports ------ ##
+## ------- Package Imports ------ ##
+
+
+class Grabber(object):
+    """."""
+    def __init__(self):
+        """."""
+        pass
+
+    def __call__(self, url):
+        """."""
+        url_content = urllib.urlopen(url).read()
+        soup = BeautifulSoup.BeautifulSoup(url_content)
+
+        all_href = [ele.get('href') for ele in soup.findAll('a')]
+        print [self._normalizeUrl(ele, url) for ele in all_href]
+
+    def _normalizeUrl(self, partial_url, base_url):
+        """."""
+        parsed = urlparse(partial_url)
+        base_parsed = urlparse(base_url)
+
+        if not parsed.netloc:
+            partial_url = u"""http://www.{}/{}""".format(base_parsed.netloc, \
+                                                     parsed.path)
+        return partial_url
+
+
+if __name__ == "__main__":
+    """First Block of statement."""
+    pass

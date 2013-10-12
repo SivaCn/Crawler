@@ -20,17 +20,20 @@ from defaults import *
 ## ------- Built-in Imports ------ ##
 
 ## ------- Package Imports ------ ##
+from arg_parse import ArgParse
 ## ------- Package Imports ------ ##
 
 
-class Crawler():
+class Crawler(ArgParse):
     def __init__(self):
         """."""
         pass
 
     def __call__(self):
         """."""
-        pass
+        options = ArgParse().parse()
+        print options.url
+        print options.limit
 
 if __name__ == "__main__":
     """First Block of statement."""

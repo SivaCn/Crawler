@@ -10,7 +10,7 @@ Introduction:
 
 Usage:
 
-    python<ver> Crawler.py -u <url> -l <limit-in-number>
+    python<ver> src/Crawler.py -u <url> -l <limit-in-number>
 
 dependencies:
 
